@@ -1,2 +1,3 @@
 on_path( '/document/title' ) { |t| puts t.text }
 on_path( '/document/author' ) { |a| puts a.text }
+after { |doc| puts doc }
