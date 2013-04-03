@@ -3,7 +3,6 @@ $LOAD_PATH << File.expand_path('../lib', __FILE__)
 require "rexml/document"
 require 'xml_ripper'
 
-puts "---> zlatan.  welcome"
 
 File.open('cities.xml') do |f|
  doc = REXML::Document.new(f)
@@ -16,6 +15,9 @@ File.open('cities.xml') do |f|
  puts doc 
 end
 
-xr = XmlRipper.new
-puts "---> 1. " + xr.to_s 
+xr = XmlRipper.new do |r|
+ r.on_path( '/document/title' ) { |t| puts t.text } 
+ r.on_path( '/document/author' ) { |a| puts a.text } 
+end
+xr.run( 'cities.xml' )
 
