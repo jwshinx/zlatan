@@ -9,8 +9,11 @@ class XmlRipper
   instance_eval( &block ) if block
  end
 
+ def initialize_from_file( path )
+  instance_eval( File.read( path ) )
+ end
+
  def on_path( path, &block )
-  #@path_actions[path] = instance_eval( &block )
   @path_actions[path] = block 
  end
 
