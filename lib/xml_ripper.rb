@@ -10,7 +10,7 @@ class XmlRipper
  end
 
  def initialize_from_file( path )
-  instance_eval( File.read( path ) )
+  instance_eval( File.read( path ), path )
  end
 
  def method_missing( name, *args,  &block )
