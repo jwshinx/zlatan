@@ -1,0 +1,3 @@
+print /document/author
+replace /document/published 2012
+print_document
