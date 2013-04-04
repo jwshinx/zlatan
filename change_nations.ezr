@@ -1,0 +1,6 @@
+replace '/document/published' '2010'
+# delete /document/title
+uppercase '/document/title'
+print '/document/title'
+replace '/document/author' 'Lee, Harper'
+print_document
