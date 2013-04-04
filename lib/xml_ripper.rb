@@ -13,6 +13,14 @@ class XmlRipper
   instance_eval( File.read( path ) )
  end
 
+ def method_missing( name, *args,  &block )
+  return super unless name.to_s =~ /on_.*/
+  parts = name.to_s.split( "_" )
+  parts.shift
+  xpath = parts.join( '/' )
+  on_path( xpath, &block )
+ end
+ 
  def on_path( path, &block )
   @path_actions[path] = block 
  end
